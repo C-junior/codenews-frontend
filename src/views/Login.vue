@@ -7,7 +7,7 @@
           <img src="/logo-codenews.png" alt="CodeNews Logo" class="h-12 xs:h-16 w-auto">
         </div>
         <h1 class="text-titulo-principal font-montserrat text-azul-profundo mb-2">
-          Sistema CodeNews
+          Sistema Code<span class="text-verde-medicina">News</span>
         </h1>
         <p class="text-texto-grande font-nunito text-cinza-neutro">
           Faça login para acessar o sistema

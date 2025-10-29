@@ -6,7 +6,7 @@
         <div class="header-responsive">
           <div class="flex items-center space-x-2 xs:space-x-4">
             <img src="/logo-codenews.png" alt="CodeNews Logo" class="h-6 xs:h-8 w-auto">
-            <h1 class="text-responsive-title text-azul-profundo">Sistema CodeNews</h1>
+            <h1 class="text-responsive-title text-azul-profundo">Sistema Code<span class="text-verde-medicina">News</span></h1>
             <span class="text-cinza-neutro hidden xs:inline">|</span>
             <span class="text-responsive-subtitle text-cinza-neutro hidden sm:inline">Dashboard</span>
           </div>
