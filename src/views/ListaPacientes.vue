@@ -1,32 +1,7 @@
 <template>
-  <div class="min-h-screen bg-cinza-claro">
-    <!-- Header -->
-    <div class="bg-branco shadow-sm border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-6">
-          <div>
-            <h1 class="text-titulo-secundario font-montserrat font-bold text-azul-profundo">
-              Lista de Pacientes
-            </h1>
-            <p class="text-texto-base text-cinza-neutro mt-1">
-              Gerencie e visualize informações dos pacientes cadastrados
-            </p>
-          </div>
-          <router-link 
-            to="/" 
-            class="btn-secondary"
-            aria-label="Voltar ao Dashboard"
-          >
-            Voltar ao Dashboard
-          </router-link>
-        </div>
-      </div>
-    </div>
-
-    <!-- Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <!-- Breadcrumb -->
-      <Breadcrumb />
+  <AppLayout>
+    <!-- Breadcrumb -->
+    <Breadcrumb />
       <!-- Search Section -->
       <div class="card mb-6">
         <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
@@ -138,7 +113,6 @@
           </table>
         </div>
       </div>
-    </div>
 
     <!-- Notification Toast -->
     <NotificationToast 
@@ -147,7 +121,7 @@
       :message="notification.message"
       @close="closeNotification"
     />
-  </div>
+  </AppLayout>
 </template>
 
 <script>
@@ -157,13 +131,15 @@ import PacienteService from '@/services/PacienteService.js';
 import LoadingSpinner from '@/components/base/LoadingSpinner.vue';
 import NotificationToast from '@/components/base/NotificationToast.vue';
 import Breadcrumb from '@/components/layout/Breadcrumb.vue';
+import AppLayout from '@/components/layout/AppLayout.vue';
 
 export default {
   name: 'ListaPacientes',
   components: {
     LoadingSpinner,
     NotificationToast,
-    Breadcrumb
+    Breadcrumb,
+    AppLayout
   },
   setup() {
     const router = useRouter();

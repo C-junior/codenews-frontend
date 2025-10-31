@@ -1,87 +1,5 @@
 <template>
-  <div class="min-h-screen bg-cinza-claro">
-    <!-- Header com informações do usuário -->
-    <header class="bg-branco shadow-sm border-b border-gray-200">
-      <div class="container-responsive py-4">
-        <div class="header-responsive">
-          <div class="flex items-center space-x-2 xs:space-x-4">
-            <img src="/logo-codenews.png" alt="CodeNews Logo" class="h-6 xs:h-8 w-auto">
-            <h1 class="text-responsive-title text-azul-profundo">Sistema Code<span class="text-verde-medicina">News</span></h1>
-            <span class="text-cinza-neutro hidden xs:inline">|</span>
-            <span class="text-responsive-subtitle text-cinza-neutro hidden sm:inline">Dashboard</span>
-          </div>
-          
-          <!-- Informações do usuário logado -->
-          <div class="flex items-center space-x-2 xs:space-x-4">
-            <div class="text-right hidden xs:block">
-              <p class="text-sm font-medium text-azul-profundo">
-                {{ currentUser?.profissional?.nome || 'Usuário' }}
-              </p>
-              <p class="text-xs text-cinza-neutro">
-                {{ currentUser?.profissional?.cargo || currentUser?.profissional?.funcao || 'Profissional' }}
-              </p>
-              <p class="text-xs text-cinza-neutro hidden sm:block">
-                {{ currentUser?.profissional?.postoTrabalho || 'Posto de Trabalho' }}
-              </p>
-            </div>
-            <BaseButton 
-              variant="secondary" 
-              size="small" 
-              @click="logout"
-              :loading="authStore.loading"
-            >
-              Sair
-            </BaseButton>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Navegação principal -->
-    <nav class="bg-azul-profundo text-branco">
-      <div class="container-responsive">
-        <div class="nav-responsive py-4">
-          <router-link 
-            to="/" 
-            class="nav-item"
-            :class="{ 'bg-white bg-opacity-20': $route.name === 'Dashboard' }"
-          >
-            Dashboard
-          </router-link>
-          <router-link 
-            to="/painel-senhas" 
-            class="nav-item"
-            :class="{ 'bg-white bg-opacity-20': $route.name === 'PainelSenhas' }"
-          >
-            Painel de Senhas
-          </router-link>
-          <router-link 
-            to="/pacientes" 
-            class="nav-item"
-            :class="{ 'bg-white bg-opacity-20': $route.name === 'ListaPacientes' }"
-          >
-            Pacientes
-          </router-link>
-          <router-link 
-            to="/profissionais" 
-            class="nav-item"
-            :class="{ 'bg-white bg-opacity-20': $route.name === 'ListaProfissionais' }"
-          >
-            Profissionais
-          </router-link>
-          <router-link 
-            to="/historico" 
-            class="nav-item"
-            :class="{ 'bg-white bg-opacity-20': $route.name === 'HistoricoSenhas' }"
-          >
-            Histórico
-          </router-link>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Conteúdo principal -->
-    <main class="container-responsive spacing-responsive-section">
+  <AppLayout>
       <!-- Painel de senhas em destaque -->
       <div class="spacing-responsive-element">
         <PainelSenhas />
@@ -225,8 +143,7 @@
           </div>
         </div>
       </div>
-    </main>
-  </div>
+  </AppLayout>
 </template>
 
 <script>
@@ -236,12 +153,14 @@ import { useAuthStore } from '@/stores/auth.js';
 import { useSenhaStore } from '@/stores/senha.js';
 import BaseButton from '@/components/base/BaseButton.vue';
 import PainelSenhas from '@/views/PainelSenhas.vue';
+import AppLayout from '@/components/layout/AppLayout.vue';
 
 export default {
   name: 'Dashboard',
   components: {
     BaseButton,
-    PainelSenhas
+    PainelSenhas,
+    AppLayout
   },
   setup() {
     const router = useRouter();
@@ -274,14 +193,7 @@ export default {
       return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     };
 
-    const logout = async () => {
-      try {
-        await authStore.logout();
-        router.push('/login');
-      } catch (error) {
-        console.error('Erro ao fazer logout:', error);
-      }
-    };
+
 
     const atualizarDados = async () => {
       try {
@@ -323,7 +235,6 @@ export default {
       estatisticas,
       ultimaAtualizacao,
       formatCPF,
-      logout,
       atualizarDados
     };
   }

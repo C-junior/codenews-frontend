@@ -1,31 +1,5 @@
 <template>
-  <div class="min-h-screen bg-cinza-claro">
-    <!-- Header -->
-    <div class="bg-branco shadow-sm border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-6">
-          <div>
-
-            <h1 class="text-titulo-secundario font-montserrat font-bold text-azul-profundo">
-              {{ paciente?.nome || 'Carregando...' }}
-            </h1>
-            <p class="text-texto-base text-cinza-neutro mt-1">
-              Informações detalhadas e histórico de procedimentos
-            </p>
-          </div>
-          <router-link 
-            to="/pacientes" 
-            class="btn-secondary"
-            aria-label="Voltar para Lista de Pacientes"
-          >
-            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Voltar à Lista
-          </router-link>
-        </div>
-      </div>
-    </div>
+  <AppLayout>
 
     <!-- Loading State -->
     <div v-if="loading" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -234,7 +208,7 @@
       :message="notification.message"
       @close="closeNotification"
     />
-  </div>
+  </AppLayout>
 </template>
 
 <script>
@@ -244,13 +218,15 @@ import PacienteService from '@/services/PacienteService.js';
 import LoadingSpinner from '@/components/base/LoadingSpinner.vue';
 import NotificationToast from '@/components/base/NotificationToast.vue';
 import Breadcrumb from '@/components/layout/Breadcrumb.vue';
+import AppLayout from '@/components/layout/AppLayout.vue';
 
 export default {
   name: 'DetalhePaciente',
   components: {
     LoadingSpinner,
     NotificationToast,
-    Breadcrumb
+    Breadcrumb,
+    AppLayout
   },
   setup() {
     const route = useRoute();

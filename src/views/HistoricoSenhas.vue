@@ -1,7 +1,8 @@
 <template>
-  <div class="historico-senhas">
-    <!-- Breadcrumb -->
-    <Breadcrumb />
+  <AppLayout>
+    <div class="historico-senhas">
+      <!-- Breadcrumb -->
+      <Breadcrumb />
     
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
@@ -206,7 +207,8 @@
         {{ filtrosAplicados ? 'Tente ajustar os filtros para ver mais resultados.' : 'Não há senhas finalizadas no período selecionado.' }}
       </p>
     </div>
-  </div>
+    </div>
+  </AppLayout>
 </template>
 
 <script>
@@ -215,6 +217,7 @@ import BaseButton from '@/components/base/BaseButton.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
 import LoadingSpinner from '@/components/base/LoadingSpinner.vue';
 import Breadcrumb from '@/components/layout/Breadcrumb.vue';
+import AppLayout from '@/components/layout/AppLayout.vue';
 import SenhaService from '@/services/SenhaService.js';
 import ProcedimentoService from '@/services/ProcedimentoService.js';
 
@@ -224,7 +227,8 @@ export default {
     BaseButton,
     BaseInput,
     LoadingSpinner,
-    Breadcrumb
+    Breadcrumb,
+    AppLayout
   },
   setup() {
     const senhasHistorico = ref([]);

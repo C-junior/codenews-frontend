@@ -1,20 +1,5 @@
 <template>
-  <div class="min-h-screen bg-cinza-claro p-6">
-    <!-- Header -->
-    <div class="mb-6">
-      <div class="flex items-center justify-between">
-        <h1 class="text-3xl font-bold text-azul-profundo font-montserrat">
-          Detalhes do Procedimento
-        </h1>
-        <BaseButton 
-          variant="secondary" 
-          size="small"
-          @click="$router.go(-1)"
-        >
-          ← Voltar
-        </BaseButton>
-      </div>
-    </div>
+  <AppLayout>
 
     <!-- Loading State -->
     <div v-if="loading" class="flex justify-center items-center py-12">
@@ -320,7 +305,7 @@
         </div>
       </div>
     </BaseModal>
-  </div>
+  </AppLayout>
 </template>
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
@@ -330,6 +315,7 @@ import BaseInput from '@/components/base/BaseInput.vue'
 import BaseModal from '@/components/base/BaseModal.vue'
 import LoadingSpinner from '@/components/base/LoadingSpinner.vue'
 import Breadcrumb from '@/components/layout/Breadcrumb.vue'
+import AppLayout from '@/components/layout/AppLayout.vue'
 import ProcedimentoService from '@/services/ProcedimentoService.js'
 import { useValidation } from '@/composables/useValidation.js'
 
