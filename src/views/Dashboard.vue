@@ -152,7 +152,7 @@ import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/auth.js';
 import { useSenhaStore } from '@/stores/senha.js';
 import BaseButton from '@/components/base/BaseButton.vue';
-import PainelSenhas from '@/views/PainelSenhas.vue';
+import PainelSenhas from '@/views/PainelSenhasContent.vue';
 import AppLayout from '@/components/layout/AppLayout.vue';
 
 export default {

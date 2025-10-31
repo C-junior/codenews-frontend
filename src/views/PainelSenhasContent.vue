@@ -1,8 +1,7 @@
 <template>
-  <AppLayout>
-    <div class="painel-senhas">
-      <!-- Breadcrumb -->
-      <Breadcrumb />
+  <div class="painel-senhas">
+    <!-- Breadcrumb -->
+    <Breadcrumb />
     
     <!-- Cabeçalho do painel -->
     <div class="bg-branco rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
@@ -191,7 +190,7 @@
         </div>
       </div>
     </div>
-  </AppLayout>
+  </div>
 </template>
 
 <script>
@@ -200,14 +199,12 @@ import { useAuthStore } from '@/stores/auth.js';
 import { useSenhaStore } from '@/stores/senha.js';
 import BaseButton from '@/components/base/BaseButton.vue';
 import Breadcrumb from '@/components/layout/Breadcrumb.vue';
-import AppLayout from '@/components/layout/AppLayout.vue';
 
 export default {
-  name: 'PainelSenhas',
+  name: 'PainelSenhasContent',
   components: {
     BaseButton,
-    Breadcrumb,
-    AppLayout
+    Breadcrumb
   },
   setup() {
     const authStore = useAuthStore();

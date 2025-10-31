@@ -7,7 +7,7 @@
     <AppNavigation />
 
     <!-- Conteúdo principal -->
-    <main class="container-responsive spacing-responsive-section">
+    <main class="container-responsive spacing-responsive-section pt-2">
       <slot />
     </main>
   </div>
