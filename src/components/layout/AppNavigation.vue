@@ -56,10 +56,7 @@
           </router-link>
         </div>
         
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <span class="text-sm font-medium">Menu</span>
-        </div>
+
       </div>
       
       <!-- Mobile Navigation Menu -->
